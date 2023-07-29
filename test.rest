@@ -1,0 +1,49 @@
+GET http://localhost:3001/api/notes
+
+##########
+GET http://localhost:3001/api/notes/64c535da2fcbbfaa97f6ed4c
+
+### id notfound
+GET http://localhost:3001/api/notes/64c535da2fcbbfaa97f6ed43
+
+### invalid id
+GET http://localhost:3001/api/notes/64c535da2fcbbfaa97f6edgf
+
+##########
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+  "content": "Some meaningful content",
+  "important": false
+}
+
+### invalid content
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+  "content": "no",
+  "important": false
+}
+
+########## 
+PUT http://localhost:3001/api/notes/64c535da2fcbbfaa97f6ed4c
+Content-Type: application/json
+
+{
+  "content": "Javascript is hard",
+  "important": false
+}
+
+### invalid content
+PUT http://localhost:3001/api/notes/64c535da2fcbbfaa97f6ed4c
+Content-Type: application/json
+
+{
+  "content": "HTML",
+  "important": false
+}
+
+##########
+DELETE http://localhost:3001/api/notes/64c538b60f61dc7182adbab7
